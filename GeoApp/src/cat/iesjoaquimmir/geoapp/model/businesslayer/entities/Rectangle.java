@@ -33,6 +33,13 @@ public final class Rectangle {
             this.setBase(base);
             this.setHeight(height);
         }
+        
+        public Rectangle(double base) {
+            this(base,1.0);
+        }
+        public Rectangle() {
+            this(1.0);
+        }
         /*public Rectangle() {
             
         }*/

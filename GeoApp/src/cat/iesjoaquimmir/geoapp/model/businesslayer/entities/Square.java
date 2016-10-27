@@ -31,6 +31,10 @@ public class Square {
         public Square(double side) {
             this.setSide(side);
         }
+        
+        public Square() {
+            this(1.0);
+        }
         /*public Square() {
             
         }*/

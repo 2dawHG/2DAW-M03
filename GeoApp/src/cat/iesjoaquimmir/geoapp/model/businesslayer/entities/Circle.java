@@ -31,6 +31,10 @@ public class Circle {
         public Circle(double radius) {
             this.setRadius(radius);
         }
+        
+        public Circle() {
+            this(1.0);
+        }
         /*public Circle() {
             
         }*/

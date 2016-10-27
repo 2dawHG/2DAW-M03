@@ -31,6 +31,10 @@ public class Sphere {
         public Sphere(double radius) {
             this.setRadius(radius);
         }
+        
+        public Sphere() {
+            this(1.0);
+        }
         /*public Sphere() {
             
         }*/
