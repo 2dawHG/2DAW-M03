@@ -5,7 +5,9 @@
  */
 package cat.iesjoaquimmir.alumnat.model.views;
 
-import cat.iesjoaquimmir.alumnat.model.businesslayer.entities.Alumne;
+//import cat.iesjoaquimmir.alumnat.model.businesslayer.entities.Alumne;
+import cat.iesjoaquimmir.alumnat.model.businesslayer.entities.Domicili;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -17,7 +19,10 @@ public class Application {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    //<editor-fold defaultstate="collapsed" desc="Alumne1">
+    
+
+   /* public static void main(String[] args) {
         
         Scanner input = new Scanner(System.in);
         System.out.printf("1-Nothing%n2-Nom%n3-Nom+DNI%n4-Tot%nEscull opció: ");
@@ -38,9 +43,9 @@ public class Application {
                 alumneAll();
                 break;
         }
-    }
+    }*/
     
-    private static void alumneDefault() {
+    /*private static void alumneDefault() {
         Alumne a1 = new Alumne();
         System.out.printf("%s %n",a1.getSalutacio());
     }
@@ -79,5 +84,16 @@ public class Application {
 
         Alumne a4 = new Alumne(nom, dni, edat);
         System.out.printf("%s %n",a4.getSalutacio());
+    }*/
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Alumne2">
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        ArrayList<String> telefon = new ArrayList<String>();
+        
+        
     }
+//</editor-fold>
+    
 }
