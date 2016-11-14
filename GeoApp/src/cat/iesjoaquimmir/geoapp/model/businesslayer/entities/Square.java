@@ -31,20 +31,16 @@ public class Square extends Shape {
     //</editor-fold>
         
     //<editor-fold defaultstate="collapsed" desc="Constructors">
-        public Square(double side) {
+        public Square(double side, Color foregroundColor, Color backgroundColor) {
+            super(backgroundColor, foregroundColor);
             this.setSide(side);
-        }
-        
-        public Square() {
-            this(1.0);
-        }
-      
-        public Square(Color foregroundColor, Color backgroundColor) {
-            this.setForegroundColor(foregroundColor);
-            this.setBackgroundColor(backgroundColor);
+            // this.setForegroundColor(foregroundColor);
+            // this.setBackgroundColor(backgroundColor);
         }
 
-        
+        public Square(double side) {
+            this(side, null, null);
+        }
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="getters/setters">

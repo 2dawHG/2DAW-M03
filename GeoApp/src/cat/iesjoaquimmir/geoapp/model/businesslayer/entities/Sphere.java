@@ -9,7 +9,7 @@ package cat.iesjoaquimmir.geoapp.model.businesslayer.entities;
  *
  * @author HG
  */
-public class Sphere { 
+public class Sphere extends Shape { 
     //<editor-fold defaultstate="collapsed" desc="Estat: Atributs">
         private double radius = 8.0; 
     //</editor-fold>
@@ -28,12 +28,13 @@ public class Sphere {
     //</editor-fold>
         
     //<editor-fold defaultstate="collapsed" desc="Constructors">
-        public Sphere(double radius) {
+        public Sphere(double radius, Color foregroundColor, Color backgroundColor) {
+            super(backgroundColor, foregroundColor);
             this.setRadius(radius);
         }
         
-        public Sphere() {
-            this(1.0);
+        public Sphere(double radius) {
+            this(radius, null, null);
         }
         /*public Sphere() {
             

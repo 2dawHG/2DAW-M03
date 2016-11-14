@@ -9,7 +9,7 @@ package cat.iesjoaquimmir.geoapp.model.businesslayer.entities;
  *
  * @author HG
  */
-public final class Rectangle { 
+public final class Rectangle extends Shape { 
     //<editor-fold defaultstate="collapsed" desc="Estat: Atributs">
         private double base = 5.0; 
         private double height = 10.0;
@@ -29,20 +29,15 @@ public final class Rectangle {
     //</editor-fold>
         
     //<editor-fold defaultstate="collapsed" desc="Constructors">
-        public Rectangle(double base, double height) {
+        public Rectangle(double base, double height, Color foregroundColor, Color backgroundColor) {
+            super(backgroundColor, foregroundColor);
             this.setBase(base);
             this.setHeight(height);
         }
         
-        public Rectangle(double base) {
-            this(base,1.0);
+        public Rectangle(double base, double height) {
+            this(base, height, null, null);
         }
-        public Rectangle() {
-            this(1.0);
-        }
-        /*public Rectangle() {
-            
-        }*/
 
         
     //</editor-fold>

@@ -13,9 +13,18 @@ public abstract class Shape {
 //<editor-fold defaultstate="collapsed" desc="Atributs">
     private Color backgroundColor;
     private Color foregroundColor;
+    
+    // Atribut Estatic
+    private static int counter=0;
 //</editor-fold>
     
 //<editor-fold defaultstate="collapsed" desc="Métodes">
+    
+//<editor-fold defaultstate="collapsed" desc="Métodes estàtics">
+    public static int getCounter() {
+        return counter;
+    }
+//</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
     public Color getBackgroundColor() {
@@ -39,7 +48,13 @@ public abstract class Shape {
         this.foregroundColor = foregroundColor;
     }
     //</editor-fold>
-    
+    //<editor-fold defaultstate="collapsed" desc="Constructors">
+    public Shape(Color backgroundColor, Color foregroundColor) {
+        this.setBackgroundColor(backgroundColor);
+        this.setForegroundColor(foregroundColor);
+        counter++;
+    }
+//</editor-fold>
 //</editor-fold>
 
     
