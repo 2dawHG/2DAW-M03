@@ -10,6 +10,7 @@ import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Rectangle;
 import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Circle;
 import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Sphere;
 import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Color;
+import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.AlphaColor;
 import java.util.Scanner;
 
 /**
@@ -32,7 +33,7 @@ public class Application {
             case 1:
                 square();
                 break;
-            case 2:
+           /* case 2:
                 rectangle();
                 break;
             case 3:
@@ -43,7 +44,7 @@ public class Application {
                 break;
             case 5:
                 color();
-                break;
+                break;*/
         }
     }
     
@@ -51,12 +52,16 @@ public class Application {
         Scanner input = new Scanner(System.in);
         System.out.printf("Donem la mida del costat: ");
         double cost = input.nextDouble();
+        System.out.printf("Donem la opacitat de la linia: ");
+        double op1 = input.nextDouble();
         System.out.printf("Donem el color de linia RED: ");
         int red = input.nextInt();
         System.out.printf("Donem el color de linia GREEN: ");
         int green = input.nextInt();
         System.out.printf("Donem el color de linia BLUE: ");
         int blue = input.nextInt();
+        System.out.printf("Donem la opacitat de fons: ");
+        double op2 = input.nextDouble();
         System.out.printf("Donem el color de fons RED: ");
         int red2 = input.nextInt();
         System.out.printf("Donem el color de fons GREEN: ");
@@ -64,19 +69,17 @@ public class Application {
         System.out.printf("Donem el color de fons BLUE: ");
         int blue2 = input.nextInt();
         
-        Color co1 = new Color(red, green, blue);
-        Color co2 = new Color(red2, green2, blue2);
+        AlphaColor co1 = new AlphaColor(op1, red, green, blue);
+        AlphaColor co2 = new AlphaColor(op2, red2, green2, blue2);
         Square c1 = new Square(cost, co1, co2);
 
-        System.out.printf("Els costats del cuadrat: %.2f %n", c1.getSide());
-        System.out.printf("L'àrea del cuadrat: %.2f %n", c1.getArea());
-        System.out.printf("El perímetre del cuadrat: %.2f %n", c1.getPerimeter());
-        System.out.printf("El color de linia es : %s %n", c1.getForegroundColor().toHexString());
-        System.out.printf("El color de fons es : %s %n", c1.getBackgroundColor().toHexString());
+        System.out.printf("%s", c1.toString());
+       // System.out.printf("%s %n", co1.toString());
+       // System.out.printf("%s %n", co2.toString());
         
     }
     
-    private static void rectangle() {
+   /* private static void rectangle() {
         Scanner input = new Scanner(System.in);
         
         System.out.printf("Donem la base: ");
@@ -97,7 +100,7 @@ public class Application {
         System.out.printf("Donem el color de fons BLUE: ");
         int blue2 = input.nextInt();
         
-        Color co1 = new Color(red, green, blue);
+        Color co1 = new AlphaColor(red, green, blue);
         Color co2 = new Color(red2, green2, blue2);
         Rectangle r1 = new Rectangle(base, altura, co1, co2);
 
@@ -197,6 +200,6 @@ public class Application {
                 System.out.printf("Colors creats: %d%n", Color.getCounter());
                 break;
         }
-    }   
+    }   */
     
 }

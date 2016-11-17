@@ -55,6 +55,17 @@ public abstract class Shape {
         counter++;
     }
 //</editor-fold>
+    
+//<editor-fold defaultstate="collapsed" desc="Sobreescritura">
+    
+    @Override
+    public String toString() {
+        return String.format("Color de linia:%n%s"
+                + "Color de fons:%n%s%n", getForegroundColor().toHexString(), getBackgroundColor().toHexString());
+    }
+    
+//</editor-fold>
+    
 //</editor-fold>
 
     

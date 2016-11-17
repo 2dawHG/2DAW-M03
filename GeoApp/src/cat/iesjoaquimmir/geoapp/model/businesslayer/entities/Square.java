@@ -28,6 +28,15 @@ public class Square extends Shape {
         public double getPerimeter() {
             return getSide() *4;
         }
+
+    @Override
+    public String toString() {
+        return String.format("Costat del cuadrat: %.2f%n"
+                + "Area del cuadrat: %.2f%n"
+                + "Perimetre del cuadrat: %.2f%n %s%n", getSide(), getArea(), getPerimeter(), super.toString());
+    }
+        
+        
     //</editor-fold>
         
     //<editor-fold defaultstate="collapsed" desc="Constructors">
