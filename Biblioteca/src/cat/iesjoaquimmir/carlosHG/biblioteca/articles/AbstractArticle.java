@@ -14,7 +14,6 @@ public abstract class AbstractArticle {
 //<editor-fold defaultstate="collapsed" desc="Atributs">
     private String titol;
     private String autor;
-    private enum Categoria{INFANTIL, JUVENIL, ADULT};
     private Categoria categoria;
     private int opcio;
 //</editor-fold>
@@ -53,17 +52,17 @@ public abstract class AbstractArticle {
         if (opcio < 1 || opcio > 3) {
             throw new IllegalArgumentException("Valor de opcio %d no valida");
         }
-        this.opcio = opcio;
+     //   this.opcio = opcio;
 
         switch(opcio) {
             case 1:
-                categoria = Categoria.INFANTIL;
+                categoria = Categoria.infantil;
                 break;
             case 2:
-                categoria = Categoria.JUVENIL;
+                categoria = Categoria.juvenil;
                 break;
             case 3: 
-                categoria = Categoria.ADULT;
+                categoria = Categoria.adult;
                 break;
         }
 
@@ -80,14 +79,15 @@ public abstract class AbstractArticle {
 //</editor-fold>
     
 //<editor-fold defaultstate="collapsed" desc="Constructors">
-    public AbstractArticle(String titol, String autor, int opcio, Categoria categoria) {
+    public AbstractArticle(String titol, String autor, Categoria categoria, int opcio) {
         this.setTitol(titol);
         this.setAutor(autor);
-        this.setOpcio(opcio);
         this.setCategoria(categoria);
+        this.setOpcio(opcio);
     }
 //</editor-fold>
-    
+
 //</editor-fold>
+
     
 }

@@ -4,9 +4,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/alumne/NetBeansProjects/Biblioteca/src/cat/iesjoaquimmir/carlosHG/biblioteca/articles/multimedia/Multimedia.java</file>
-            <file>file:/home/alumne/NetBeansProjects/Biblioteca/src/cat/iesjoaquimmir/carlosHG/biblioteca/Application.java</file>
+            <file>file:/home/alumne/NetBeansProjects/Biblioteca/src/cat/iesjoaquimmir/carlosHG/biblioteca/articles/publicacio/Revista.java</file>
+            <file>file:/home/alumne/NetBeansProjects/Biblioteca/src/cat/iesjoaquimmir/carlosHG/biblioteca/usuaris/UsuariMenorEdat.java</file>
             <file>file:/home/alumne/NetBeansProjects/Biblioteca/src/cat/iesjoaquimmir/carlosHG/biblioteca/articles/AbstractArticle.java</file>
+            <file>file:/home/alumne/NetBeansProjects/Biblioteca/src/cat/iesjoaquimmir/carlosHG/biblioteca/articles/Categoria.java</file>
+            <file>file:/home/alumne/NetBeansProjects/Biblioteca/src/cat/iesjoaquimmir/carlosHG/biblioteca/usuaris/UsuariAdult.java</file>
+            <file>file:/home/alumne/NetBeansProjects/Biblioteca/src/cat/iesjoaquimmir/carlosHG/biblioteca/articles/publicacio/Llibre.java</file>
             <file>file:/home/alumne/NetBeansProjects/Biblioteca/src/cat/iesjoaquimmir/carlosHG/biblioteca/articles/publicacio/Publicacio.java</file>
+            <file>file:/home/alumne/NetBeansProjects/Biblioteca/src/cat/iesjoaquimmir/carlosHG/biblioteca/usuaris/Usuari.java</file>
+            <file>file:/home/alumne/NetBeansProjects/Biblioteca/src/cat/iesjoaquimmir/carlosHG/biblioteca/articles/InArticle.java</file>
+            <file>file:/home/alumne/NetBeansProjects/Biblioteca/src/cat/iesjoaquimmir/carlosHG/biblioteca/articles/multimedia/DiscCompacte.java</file>
+            <file>file:/home/alumne/NetBeansProjects/Biblioteca/src/cat/iesjoaquimmir/carlosHG/biblioteca/Application.java</file>
+            <file>file:/home/alumne/NetBeansProjects/Biblioteca/src/cat/iesjoaquimmir/carlosHG/biblioteca/articles/multimedia/DiscVersatilDigital.java</file>
         </group>
     </open-files>
 </project-private>

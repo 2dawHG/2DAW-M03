@@ -4,45 +4,45 @@
  * and open the template in the editor.
  */
 package cat.iesjoaquimmir.carlosHG.biblioteca.articles.multimedia;
-import cat.iesjoaquimmir.carlosHG.biblioteca.articles.AbstractArticle;
+
 import cat.iesjoaquimmir.carlosHG.biblioteca.articles.Categoria;
 
 /**
  *
  * @author HG
  */
-public abstract class Multimedia extends AbstractArticle {
+public class DiscCompacte extends Multimedia {
     
 //<editor-fold defaultstate="collapsed" desc="Atributs">
-    private int durada;
+    
+    private String ismn;
+    
 //</editor-fold>
     
 //<editor-fold defaultstate="collapsed" desc="Métodes">
     
 //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
-    public int getDurada() {
-        return durada;
+    public String getIsmn() {
+        return ismn;
     }
 
-    private void setDurada(int durada) {
-        if(durada <= 0) {
-            throw new IllegalArgumentException("Valor de durada no valida, introdueix una acceptable");
+    public void setIsmn(String Ismn) {
+        if(ismn == null) {
+            throw new NullPointerException("Aquest camp no pot estar buit");
         }
-        this.durada = durada;
+        this.ismn = Ismn;
     }
 //</editor-fold>
     
-//<editor-fold defaultstate="collapsed" desc="Constuctors">
-    public Multimedia(int durada, String titol, String autor, Categoria categoria, int opcio) {
-        super(titol, autor, categoria, opcio);
-        this.setDurada(durada);
+//<editor-fold defaultstate="collapsed" desc="Costructors">
+    public DiscCompacte(String ismn, int durada, String titol, String autor, Categoria categoria, int opcio) {
+        super(durada,titol,autor,categoria,opcio);
+        this.setIsmn(ismn);
     }
 //</editor-fold>
     
     
 //</editor-fold>
 
-    
-    
     
 }

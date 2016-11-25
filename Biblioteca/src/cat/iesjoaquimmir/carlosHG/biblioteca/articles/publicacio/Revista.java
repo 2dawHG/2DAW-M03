@@ -5,41 +5,43 @@
  */
 package cat.iesjoaquimmir.carlosHG.biblioteca.articles.publicacio;
 
-import cat.iesjoaquimmir.carlosHG.biblioteca.articles.AbstractArticle;
 import cat.iesjoaquimmir.carlosHG.biblioteca.articles.Categoria;
 
 /**
  *
  * @author HG
  */
-public abstract class Publicacio extends AbstractArticle {
-    
+public class Revista extends Publicacio {
+
 //<editor-fold defaultstate="collapsed" desc="Atributs">
-    private int pagines;
+    
+    private String issn;
+    
 //</editor-fold>
     
 //<editor-fold defaultstate="collapsed" desc="Métodes">
     
 //<editor-fold defaultstate="collapsed" desc="Getters/Setters">
-    public int getPagines() {
-        return pagines;
+     public String getIssn() {
+        return issn;
     }
 
-    private void setPagines(int pagines) {
-        if(pagines <= 0) {
-            throw new IllegalArgumentException("Número de pagines no valid, insereix un número acceptable");
+    public void setIssn(String issn) {
+        if(issn == null) {
+            throw new NullPointerException("Aquest camp no pot estar buit");
         }
-        this.pagines = pagines;
-    } 
+        this.issn = issn;
+    }
 //</editor-fold>
     
 //<editor-fold defaultstate="collapsed" desc="Constructors">
-    public Publicacio(int pagines, String titol, String autor, Categoria categoria, int opcio) {
-        super(titol, autor, categoria, opcio);
-        this.setPagines(pagines);
+    
+    public Revista(String issn, int pagines, String titol, String autor, Categoria categoria, int opcio) {
+        super(pagines,titol,autor,categoria,opcio);
+        this.setIssn(issn);
     }
+    
 //</editor-fold>
- 
     
 //</editor-fold>
     
