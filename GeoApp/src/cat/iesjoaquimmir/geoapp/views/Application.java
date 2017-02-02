@@ -11,6 +11,10 @@ import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Circle;
 import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Sphere;
 import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.Color;
 import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.AlphaColor;
+import cat.iesjoaquimmir.geoapp.model.persistence.daos.contracts.ColorDAO;
+import cat.iesjoaquimmir.geoapp.model.persistence.daos.impl.jdbc.ColorMySQLDAO;
+import cat.iesjoaquimmir.geoapp.model.persistence.exception.PersistenceException;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -18,13 +22,161 @@ import java.util.Scanner;
  * @author HG
  */
 public class Application {
+    public static void main(String[] args) throws PersistenceException {
+        
+        Scanner input = new Scanner(System.in);
+        
+        System.out.printf("1-SELECT COLOR%n2-SELECT * COLORS%n3-INSERT COLOR%n4-UPDATE COLOR%nEscull la opció: ");
+        int num = input.nextInt();
 
+        switch (num) {
+            case 1:
+                selectColor();
+                break;
+            case 2:
+                selectAllColors();
+                break;
+            case 3:
+                insertColor();
+                break;
+            case 4:
+                updColor();
+                break;
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-
+    //<editor-fold defaultstate="collapsed" desc="select one">    
+    public static void selectColor() {
         Scanner input = new Scanner(System.in);
+        ColorDAO colorDAO = new ColorMySQLDAO();
+
+        System.out.printf("Donem el ID del color que vols mostrar: ");
+        long id = input.nextLong();
+        
+        try {
+            Color color = colorDAO.getColorById(id);
+            if (color != null) {
+                System.out.println(color.toString());
+            }
+        } catch (PersistenceException e) {
+            e.printStackTrace();
+        }
+    }
+//</editor-fold>
+
+    //<editor-fold defaultstate="collapsed" desc="select all">
+    public static void selectAllColors() throws PersistenceException {
+        
+        ColorDAO colorDAO = new ColorMySQLDAO();
+        
+//        try {
+//            Color color = colorDAO.getColorById(2);
+//            if (color != null) {
+//                System.out.println(color.toString());
+//            }
+//        } catch (PersistenceException e) {
+//            e.printStackTrace();
+//        }
+        
+        try {
+            List<AlphaColor> colors = colorDAO.getColors();
+            for (AlphaColor color : colors) {
+                System.out.println(color.toString());
+            }
+        } catch (PersistenceException ex) {
+            ex.printStackTrace();
+        }
+    }
+//</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="insert">
+    public static void insertColor() throws PersistenceException {
+        Scanner input = new Scanner(System.in);
+        ColorDAO colorDAO = new ColorMySQLDAO(); 
+        
+        System.out.printf("Donem la opacitat: ");
+        double alpha = input.nextDouble();
+        System.out.printf("Donem el color RED: ");
+        int red = input.nextInt();
+        System.out.printf("Donem el color GREEN: ");
+        int green = input.nextInt();
+        System.out.printf("Donem el color BLUE: ");
+        int blue = input.nextInt();
+        
+        AlphaColor color = new AlphaColor(alpha, red, green, blue);
+        
+        try {
+            colorDAO.saveColor(color);      
+        } catch (PersistenceException e) {
+            e.printStackTrace();
+
+	}
+        
+    }
+//</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="update">
+    public static void updColor() throws PersistenceException {
+        Scanner input = new Scanner(System.in);
+        ColorDAO colorDAO = new ColorMySQLDAO();
+        
+        try {
+            List<AlphaColor> colors = colorDAO.getColors();
+            for (AlphaColor color : colors) {
+                System.out.println(color.toString());
+            }
+        } catch (PersistenceException ex) {
+            ex.printStackTrace();
+        }
+
+        System.out.printf("Donem el ID del color que vols modificar: ");
+        long id = input.nextLong();
+        
+        AlphaColor color = colorDAO.getColorById(id);
+        
+        System.out.printf("Donem la opacitat: ");
+        double alpha = input.nextDouble();
+        System.out.printf("Donem el color RED: ");
+        int red = input.nextInt();
+        System.out.printf("Donem el color GREEN: ");
+        int green = input.nextInt();
+        System.out.printf("Donem el color BLUE: ");
+        int blue = input.nextInt();
+        
+        color.setAlpha(alpha);
+        color.setBlue(blue);
+        color.setGreen(green);
+        color.setRed(red);
+
+        
+        try {
+            colorDAO.updateColor(color);      
+        } catch (PersistenceException e) {
+            e.printStackTrace();
+
+	}
+        
+//        System.out.printf("El color ha sigut modificat de la següent manera:%n ");
+//        
+//        try {
+//            color = colorDAO.getColorById(id);
+//            if (color != null) {
+//                System.out.println(color.toString());
+//            }
+//        } catch (PersistenceException e) {
+//            e.printStackTrace();
+//        }
+        
+    }
+//</editor-fold>
+
+    //<editor-fold defaultstate="collapsed" desc="Anteriore">
+
+
+      /*  Scanner input = new Scanner(System.in);
 
         System.out.printf("1-Cuadrat%n2-Rectangle%n3-Cercle%n4-Esfera%n5-Color%nEscull la opció: ");
         int num = input.nextInt();
@@ -44,7 +196,7 @@ public class Application {
                 break;
             case 5:
                 color();
-                break;*/
+                break;
         }
     }
     
@@ -201,5 +353,5 @@ public class Application {
                 break;
         }
     }   */
-    
+ //</editor-fold>   
 }

@@ -9,7 +9,7 @@ package cat.iesjoaquimmir.geoapp.model.businesslayer.entities;
  *
  * @author HG
  */
-public abstract class Color {
+public abstract class Color extends Entity {
     
     //<editor-fold defaultstate="collapsed" desc="Atributs">
     private int red;
@@ -64,7 +64,6 @@ public abstract class Color {
     
     //<editor-fold defaultstate="collapsed" desc="Constructors">
     public Color(int red, int green, int blue) {
-        counter++;
         this.setRed(red);
         this.setGreen(green);
         this.setBlue(blue);
@@ -109,11 +108,12 @@ public abstract class Color {
                     Integer.parseInt(color.substring(5, 7), 16)) {};
     }
     
-   /* @Override
+    @Override
     public String toString() {
-        return String.format("Color HEX: %s%n"
-                + "Color RGB: %s%n",toHexString(),toRGBString());
-    }*/
+        return String.format("ID: %d%n"
+                + "Color HEX: %s%n"
+                + "Color RGB: %s%n",getId(), toHexString(),toRGBString());
+    }
 //</editor-fold>
     
     //</editor-fold>

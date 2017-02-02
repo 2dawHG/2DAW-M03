@@ -34,7 +34,7 @@ public class AlphaColor extends Color {
 //</editor-fold>
     
 //<editor-fold defaultstate="collapsed" desc="Constructors">
-    public AlphaColor(double Alpha, int red, int green, int blue) {
+    public AlphaColor(double alpha, int red, int green, int blue) {
         super(red, green, blue);
         this.setAlpha(alpha);
     }
@@ -46,7 +46,7 @@ public class AlphaColor extends Color {
 //</editor-fold>
 //<editor-fold defaultstate="collapsed" desc="Sobreescritura">
     
-    @Override
+    /*@Override
     public String toHexString(boolean upper) {
         return String.format("%s i alpha %.2f", super.toHexString(upper), getAlpha());
     }
@@ -54,7 +54,7 @@ public class AlphaColor extends Color {
     @Override
     public String toHexString() {
         return String.format("%s i alpha %.2f", super.toHexString(true), getAlpha());
-    }
+    }*/
 
     @Override
     public String toRGBString(boolean upper) {
@@ -74,6 +74,8 @@ public class AlphaColor extends Color {
     
 //</editor-fold>
 //</editor-fold>
+
+
 
     
 
