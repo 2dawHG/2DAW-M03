@@ -9,6 +9,7 @@ import cat.iesjoaquimmir.geoapp.model.businesslayer.entities.AlphaColor;
 import cat.iesjoaquimmir.geoapp.model.persistence.daos.contracts.ColorDAO;
 import cat.iesjoaquimmir.geoapp.model.persistence.exception.PersistenceException;
 import cat.iesjoaquimmir.geoapp.model.persistence.utilities.JDBCUtils;
+import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -27,11 +28,13 @@ public class ColorMySQLDAO implements ColorDAO {
     
         AlphaColor color = null;
         Connection conn = null;
-        PreparedStatement sql = null;
+        // PreparedStatement sql = null;
+        CallableStatement sql = null;
         
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/geoapp", "root", "root");
-            sql =  conn.prepareStatement("SELECT id, red, green, blue, alpha FROM colors where id=?");
+            // sql =  conn.prepareStatement("SELECT id, red, green, blue, alpha FROM colors where id=?");
+            sql = conn.prepareCall("CALL getColorById(?)");
                 sql.setLong(1, id);
                 try(ResultSet reader = sql.executeQuery();) {
                     if(reader.next()) {
@@ -60,12 +63,14 @@ public class ColorMySQLDAO implements ColorDAO {
         
         AlphaColor color = null;
         Connection conn = null;
-        PreparedStatement sql = null;
+        //PreparedStatement sql = null;
+        CallableStatement sql = null;
         List<AlphaColor> colors = new ArrayList<>();
         
         try {
             conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/geoapp", "root", "root");
-            sql = conn.prepareStatement("SELECT id, red, green, blue, alpha FROM colors");
+            //sql = conn.prepareStatement("SELECT id, red, green, blue, alpha FROM colors");
+            sql = conn.prepareCall("CALL getColors()");
             try(ResultSet reader = sql.executeQuery();) {
                 while (reader.next()) {
                     colors.add(JDBCUtils.getAlphaColor(reader));
@@ -92,11 +97,13 @@ public class ColorMySQLDAO implements ColorDAO {
     public void saveColor(AlphaColor color) throws PersistenceException {
         
         Connection conn = null;
-        PreparedStatement sql = null;
+        //PreparedStatement sql = null;
+        CallableStatement sql = null;
         
         try {
            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/geoapp", "root", "root");
-           sql = conn.prepareStatement("INSERT INTO colors (alpha, red, green, blue) VALUES (?,?,?,?)");
+           //sql = conn.prepareStatement("INSERT INTO colors (alpha, red, green, blue) VALUES (?,?,?,?)");
+           sql = conn.prepareCall("CALL saveColor(?,?,?,?)");
            
            sql.setDouble(1, color.getAlpha());
            sql.setInt(2, color.getRed());
@@ -125,12 +132,13 @@ public class ColorMySQLDAO implements ColorDAO {
     public void updateColor(AlphaColor color) throws PersistenceException {
         
         Connection conn = null;
-        PreparedStatement sql = null;
+        //PreparedStatement sql = null;
+        CallableStatement sql = null;
         
         try {
            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/geoapp", "root", "root");
-           sql = conn.prepareStatement("UPDATE colors SET alpha=?, red=?, green=?, blue=? WHERE id = ?");
-           
+           //sql = conn.prepareStatement("UPDATE colors SET alpha=?, red=?, green=?, blue=? WHERE id = ?");
+           sql = conn.prepareCall("CALL updateColor(?,?,?,?,?)");
            
            sql.setDouble(1, color.getAlpha());
            sql.setInt(2, color.getRed());
